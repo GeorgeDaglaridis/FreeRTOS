@@ -2,7 +2,7 @@ PROJ=main
 CPU ?=cortex-m3
 BOARD ?=stm32vldiscovery
 
-OBJ = boot.o
+OBJ = boot.o start.o
 
 .PHONY: all
 all: $(PROJ).elf
@@ -10,6 +10,10 @@ all: $(PROJ).elf
 %.o: %.S
 	@echo "here 2"
 	arm-none-eabi-as -mthumb -mcpu=$(CPU) -g -c $^ -o $@
+
+%.o: %.c
+	@echo "here 3"
+	arm-none-eabi-gcc -mthumb -mcpu=$(CPU) -g -c $^ -o $@
 
 $(PROJ).elf: $(OBJ)
 	@echo "here 1"
