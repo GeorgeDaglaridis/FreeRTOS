@@ -1,4 +1,4 @@
-PROJ=boot
+PROJ=main
 CPU ?=cortex-m3
 BOARD ?=stm32vldiscovery
 
@@ -25,4 +25,4 @@ gdb:
 	gdb-multiarch -q $(PROJ).elf -ex "target remote localhost:1234"
 
 clean:
-	rm -rf *.o *.elf *.debug *.lst *.gdb_history
+	rm -rf *.o *.elf *.debug *.lst .gdb_history 
