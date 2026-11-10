@@ -12,5 +12,8 @@ reset_handler:
     mov r2, #0x2
     add r3, r1, r2
 
-    b start
+    bl start
+
+    add r3, r3, #0x1
+
     b .
